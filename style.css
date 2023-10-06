@@ -1,0 +1,283 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+/* GENERAL CSS */
+.container {
+  width: 100%;
+  height: 100vh;
+  background-color: #ced4da;
+  margin: 0 auto; /* Center the container horizontally */
+  padding: 20px; /* Add some padding inside the container */
+}
+
+.inner-container {
+  width: 100rem;
+  height: fit-content;
+  margin: 2rem auto; /* 20px margin from the top, auto margins for left and right */
+  display: flex; /* Use flex layout for the inner container */
+  border-radius: 2rem;
+}
+
+.navbar {
+  width: 25rem;
+  background-color: #dee2e6;
+  /* background-color: aqua; */
+  border-radius: 2rem 0 0 2rem;
+  padding: 2rem;
+}
+
+/* SEARCH CONTAINER */
+.search-container {
+  /* display: inline-block; */
+  /* margin: 2rem; */
+  /* background-color: #f0f0f0; */
+  border-radius: 2rem;
+  overflow: hidden;
+  display: flex;
+  gap: 0.8rem;
+  align-items: center;
+  padding: 1rem;
+
+  box-shadow: 0.5rem 0.5rem 2rem #00000040;
+}
+
+.search-logo {
+  cursor: pointer;
+  padding: 0.5rem;
+  /* margin: 1rem 0 0 0.5rem; */
+  /* height: 2.4rem; */
+  width: 2.4rem;
+}
+
+.search-input {
+  /* margin-bottom: 1.5rem; */
+  /* margin: 1rem 0 0 0.5rem; */
+  /* padding-top: 1.2rem; */
+  font-size: 2rem;
+  /* padding: 1.3rem; */
+  width: 100%;
+  background-color: transparent;
+  outline: none;
+  border: none;
+}
+
+/* overflow-x: hidden; top: 0; left: 0; For left side navbar*/
+
+/* MAIN BIG ICON OF WEATHER */
+
+.icon-cloud {
+  font-size: 20rem;
+  color: #e67700;
+}
+
+/* HEADING  */
+
+.heading-temp {
+  font-size: 5rem;
+  font-family: sans-serif;
+  font-weight: 600;
+}
+
+.description {
+  margin-top: 2rem;
+}
+
+.description p {
+  font-size: 1.6rem;
+  font-weight: bold;
+}
+
+.cloudy {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  /* flex-direction: row; */
+}
+.cloudy img {
+  height: 2.6rem;
+  margin-right: 1rem;
+  /* box-shadow: 1rem 1rem 1rem #00000050; */
+}
+
+.image {
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.img-description {
+  position: absolute;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.main-image {
+  margin-top: 1.6rem;
+  height: 10rem;
+  width: 20rem;
+}
+
+/* Section 1: header */
+.main-section {
+  width: 100%;
+  background-color: #e9ecef;
+  border-radius: 0 2rem 2rem 0;
+  overflow: hidden;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2rem 2rem 0 2rem;
+}
+
+.select {
+  font-weight: bold;
+  display: flex;
+  gap: 2rem;
+  font-size: 1.4rem;
+}
+
+/* The switch - the box around the slider */
+.btn-degree {
+  width: 51px;
+  height: 31px;
+  position: relative;
+}
+
+/* Hide default HTML checkbox */
+.checkbox {
+  opacity: 0;
+  width: 0;
+  height: 0;
+  position: absolute;
+}
+
+.switch {
+  width: 100%;
+  height: 100%;
+  display: block;
+  background-color: #ced4da;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: all 0.2s ease-out;
+}
+
+/* The slider */
+.slider {
+  width: 27px;
+  height: 27px;
+  position: absolute;
+  left: calc(50% - 27px / 2 - 10px);
+  top: calc(50% - 27px / 2);
+  border-radius: 50%;
+  background: #ffffff;
+  box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.15), 0px 3px 1px rgba(0, 0, 0, 0.06);
+  transition: all 0.2s ease-out;
+  cursor: pointer;
+}
+
+.checkbox:checked + .switch {
+  background-color: #adb5bd;
+}
+
+.checkbox:checked + .switch .slider {
+  left: calc(50% - 27px / 2 + 10px);
+  top: calc(50% - 27px / 2);
+}
+
+.checkbox + .switch:after,
+.checkbox:checked + .switch:after {
+  content: 'C';
+
+  font-size: 1.4rem;
+  font-family: sans-serif;
+  font-weight: 600;
+
+  display: block;
+  width: 1.5px;
+  height: 1.5px;
+  position: absolute;
+  top: 9px;
+  right: 16px;
+}
+
+.checkbox:checked + .switch:after {
+  content: 'F';
+  left: 10px;
+}
+
+.celcius-btn,
+.fahrenheit-btn {
+  border: none;
+  border-radius: 3rem;
+  padding: 1rem 1.4rem;
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+/* DISPALY WEEKS*/
+.display-weeks {
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 1rem; /* Add a 20px gap between cards */
+  width: 100%; /* Expand the container to the full width of the parent */
+  padding: 0 2rem;
+}
+
+.card {
+  background-color: #f0f0f0;
+  padding: 1.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 1.6rem;
+  text-align: center;
+  font-size: 1.8rem;
+}
+
+.card-img {
+  height: 2.7rem;
+}
+
+/* Highlights Card */
+.highlights {
+  font-size: 2rem;
+  padding: 2rem 2rem 0 2rem;
+  margin-top: 1rem;
+}
+
+.highlights-card {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem; /* Add a 20px gap between cards */
+  width: 100%; /* Expand the container to the full width of the parent */
+  padding: 2rem;
+}
+
+.card-highlight {
+  background-color: #f0f0f0;
+  padding: 1.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 1.6rem;
+  text-align: start;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.heading-highlight {
+  text-align: start;
+  text-transform: uppercase;
+  font-size: 1.4rem;
+  font-family: sans-serif;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
