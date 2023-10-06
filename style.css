@@ -41,7 +41,8 @@ html {
   border-radius: 2rem;
   overflow: hidden;
   display: flex;
-  gap: 0.8rem;
+  /* gap: 0.8rem; */
+  justify-content: space-between;
   align-items: center;
   padding: 1rem;
 
@@ -51,17 +52,12 @@ html {
 .search-logo {
   cursor: pointer;
   padding: 0.5rem;
-  /* margin: 1rem 0 0 0.5rem; */
-  /* height: 2.4rem; */
   width: 2.4rem;
 }
 
 .search-input {
-  /* margin-bottom: 1.5rem; */
-  /* margin: 1rem 0 0 0.5rem; */
-  /* padding-top: 1.2rem; */
-  font-size: 2rem;
-  /* padding: 1.3rem; */
+  font-size: 1.4rem;
+  padding-left: 1.3rem;
   width: 100%;
   background-color: transparent;
   outline: none;
@@ -83,6 +79,10 @@ html {
   font-size: 5rem;
   font-family: sans-serif;
   font-weight: 600;
+}
+
+.hidden {
+  opacity: 0;
 }
 
 .description {
@@ -113,6 +113,15 @@ html {
   display: flex;
 }
 
+/* .image::before {
+  content: '';
+  position: absolute;
+
+  width: 100%;
+  height: 100%;
+  background-color: rgba(150, 150, 150, 0.8);
+} */
+
 .img-description {
   position: absolute;
   font-size: 2rem;
@@ -137,14 +146,17 @@ html {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 2rem 2rem 0 2rem;
+  padding: 3rem 3rem 0 2rem;
+  background-color: rgb(131, 128, 128);
 }
 
-.select {
+.weekday {
   font-weight: bold;
-  display: flex;
-  gap: 2rem;
   font-size: 1.4rem;
+  border-left: 0.5rem solid #e67700;
+  letter-spacing: 0.5rem;
+  text-transform: uppercase;
+  padding-left: 1rem;
 }
 
 /* The switch - the box around the slider */
@@ -225,59 +237,36 @@ html {
   font-weight: bold;
 }
 
-/* DISPALY WEEKS*/
-.display-weeks {
-  margin-top: 2rem;
+.cards {
   display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  gap: 1rem; /* Add a 20px gap between cards */
-  width: 100%; /* Expand the container to the full width of the parent */
-  padding: 0 2rem;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+
+  margin: 4rem;
+  padding: 2rem;
+  font-size: 2rem;
 }
 
 .card {
-  background-color: #f0f0f0;
-  padding: 1.5rem;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  border-radius: 1.6rem;
-  text-align: center;
-  font-size: 1.8rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+  padding: 1rem;
+
+  border: 0.3rem solid slateblue;
+  /* width: fit-content; */
+
+  background-color: burlywood;
+  border-radius: 1.2rem;
 }
 
-.card-img {
-  height: 2.7rem;
+.card img {
+  height: 2.4rem;
+  width: 2.4rem;
+  background-color: grey;
 }
 
-/* Highlights Card */
-.highlights {
-  font-size: 2rem;
-  padding: 2rem 2rem 0 2rem;
-  margin-top: 1rem;
-}
-
-.highlights-card {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1rem; /* Add a 20px gap between cards */
-  width: 100%; /* Expand the container to the full width of the parent */
-  padding: 2rem;
-}
-
-.card-highlight {
-  background-color: #f0f0f0;
-  padding: 1.5rem;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  border-radius: 1.6rem;
-  text-align: start;
-  font-size: 1.2rem;
-  font-weight: bold;
-}
-
-.heading-highlight {
-  text-align: start;
-  text-transform: uppercase;
-  font-size: 1.4rem;
-  font-family: sans-serif;
-  font-weight: 600;
-  margin-bottom: 1rem;
+.card h2 {
+  font-size: 1.6rem;
 }

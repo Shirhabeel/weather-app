@@ -5,14 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Weather Application</title>
     <link rel="stylesheet" href="style.css" />
-    <!-- <script defer src="JS/script.js"></script> -->
+    <script defer src="script.js"></script>
   </head>
   <body>
     <div class="container">
       <div class="inner-container">
         <nav class="navbar">
           <div class="search-container">
-            <input type="search" name="search" class="search-input" />
+            <input
+              type="search"
+              name="search"
+              placeholder="Enter your city..."
+              class="search-input"
+            />
             <label for="search">
               <img class="search-logo" src="img/search.png" alt="search-logo" />
             </label>
@@ -20,20 +25,20 @@
           <div class="main-icon">
             <img src="img/mist.png" alt="Weather" />
           </div>
-          <div class="temp">
-            <h1 class="heading-temp">25<sup>&deg;C</sup></h1>
+          <div class="heading-temp hidden">
+            <h1>25<sup>&deg;C</sup></h1>
           </div>
           <div class="description">
-            <div class="cloudy">
-              <img src="img/clouds.png" alt="Clouds" />
-              <p>Mostly Cloudy</p>
+            <div class="rain">
+              <!-- <img src="img/rain.png" alt="rain" /> -->
+              <p class="feel hidden">35</p>
             </div>
             <div class="cloudy">
-              <img src="img/rain.png" alt="rain" />
-              <p>Rain - 30%</p>
+              <!-- <img src="img/clouds.png" alt="Clouds" /> -->
+              <p class="clouds hidden">Mostly Cloudy</p>
             </div>
           </div>
-          <div class="image">
+          <div class="image hidden">
             <img
               class="main-image"
               src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
@@ -45,9 +50,8 @@
 
         <section class="main-section">
           <div class="header">
-            <div class="select">
-              <p class="today">Today</p>
-              <p class="week">Week</p>
+            <div>
+              <p class="weekday">Sunday</p>
             </div>
             <div class="btn-degree">
               <input id="checkbox" class="checkbox" type="checkbox" />
@@ -58,91 +62,36 @@
               <button class="fahrenheit-btn">F</button> -->
             </div>
           </div>
-
-          <div class="display-weeks">
-            <div class="sun card">
-              <p>Sun</p>
-              <img class="card-img" src="img/clear.png" alt="Sun" />
-
-              <p>&deg;15</p>
+          <div class="cards">
+            <div class="card humidity_card hidden">
+              <img src="img/humidity.png" alt="Humidity Logo" />
+              <h2>Humidity</h2>
+              <p class="humidity_value"></p>
             </div>
-
-            <div class="mon card">
-              <p>Mon</p>
-              <img class="card-img" src="img/clear.png" alt="Sun" />
-
-              <p>&deg;15</p>
+            <div class="card pressure_card hidden">
+              <img src="img/pressure.png" alt="Pressure Logo" />
+              <h2>Pressure</h2>
+              <p class="pressure_value"></p>
             </div>
-
-            <div class="tue card">
-              <p>Tues</p>
-              <img class="card-img" src="img/clear.png" alt="Sun" />
-
-              <p>&deg;15</p>
+            <div class="card wind_card hidden">
+              <img src="img/wind.png" alt="Wind Image" />
+              <h2>Wind</h2>
+              <p class="wind_value"></p>
             </div>
-
-            <div class="wed card">
-              <p>Wed</p>
-              <img class="card-img" src="img/clear.png" alt="Sun" />
-
-              <p>&deg;15</p>
+            <div class="card sunrise_Card hidden">
+              <img src="img/sunrise.png" alt="Sunrise" />
+              <h2>Sunrise</h2>
+              <p class="sunrise_value"></p>
             </div>
-
-            <div class="thu card">
-              <p>Thur</p>
-              <img class="card-img" src="img/clear.png" alt="Sun" />
-
-              <p>&deg;15</p>
+            <div class="card sunset_card hidden">
+              <img src="img/sunset.png" alt="Sunset" />
+              <h2>Sunset</h2>
+              <p class="sunset_value"></p>
             </div>
-
-            <div class="fri card">
-              <p>Fri</p>
-              <img class="card-img" src="img/clear.png" alt="Sun" />
-
-              <p>&deg;15</p>
-            </div>
-
-            <div class="sat card">
-              <p>Sat</p>
-              <img class="card-img" src="img/clear.png" alt="Sun" />
-
-              <p>&deg;15</p>
-            </div>
-          </div>
-
-          <div class="highlights">
-            <p><strong>Today's Highlights</strong></p>
-          </div>
-
-          <div class="highlights-card">
-            <div class="card-highlight">
-              <p class="heading-highlight">UV Index</p>
-            </div>
-
-            <div class="card-highlight">
-              <p class="heading-highlight">Wind Satus</p>
-              <h3><span>7.70</span> km/h</h3>
-            </div>
-
-            <div class="card-highlight">
-              <p class="heading-highlight">Sunrise and Sunset</p>
-              <div class="sunrise">Sunrise</div>
-              <div class="sunrise">Sunset</div>
-            </div>
-
-            <div class="card-highlight">
-              <p class="heading-highlight">Humidity</p>
-              <h2>12<sup>%</sup></h2>
-            </div>
-
-            <div class="card-highlight">
-              <p class="heading-highlight">Visibility</p>
-              <h3>5.2 <sub>km</sub></h3>
-            </div>
-
-            <div class="card-highlight">
-              <p class="heading-highlight">Air Quality</p>
-              <h3>105</h3>
+            <div class="card visibility_card hidden">
+              <img src="img/visible.png" alt="Visibility Eye" />
+              <h2>Visibility</h2>
+              <p class="visibility_value"></p>
             </div>
           </div>
         </section>
