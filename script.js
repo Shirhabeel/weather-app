@@ -23,6 +23,7 @@ const feelsLike = document.querySelector('.feel');
 //   } else {
 //     // User switched to Celsius
 //     slider.style.left = 'calc(50% - 27px / 2 - 10px)';
+//     console.log(unitText);
 //     // unitText.textContent = 'C';
 //   }
 // });
@@ -65,13 +66,20 @@ const sunTime = function (timeStamp) {
   const curDate = new Date(timeStamp * 1000);
   const options = { hour: '2-digit', minute: '2-digit' };
   time = curDate.toLocaleString('en-US', options);
-  // console.log(time);
 };
 
 searchLogo.addEventListener('click', async function () {
   city = searchInput.value;
   searchInput.value = '';
   await weatherApp(apiKey, city);
+});
+
+searchInput.addEventListener('keyup', function (event) {
+  if (event.key === 'Enter') {
+    city = searchInput.value;
+    searchInput.value = '';
+    weatherApp(apiKey, city);
+  }
 });
 
 async function weatherApp(key, location) {
