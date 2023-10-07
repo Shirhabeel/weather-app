@@ -2,10 +2,30 @@ const searchLogo = document.querySelector('.search-logo');
 const searchInput = document.querySelector('.search-input');
 const mainTemp = document.querySelector('.heading-temp');
 const imgLocation = document.querySelector('.img-description');
+const mainIcon = document.querySelector('.main-icon');
 const img = document.querySelector('.image');
 
 const cloudDesc = document.querySelector('.clouds');
 const feelsLike = document.querySelector('.feel');
+
+// const checkbox = document.getElementById('checkbox');
+// const switchLabel = document.querySelector('.switch');
+
+// checkbox.addEventListener('change', function () {
+//   const slider = switchLabel.querySelector('.slider');
+//   const unitText = switchLabel.querySelector('.switch:after');
+
+//   if (this.checked) {
+//     // User switched to Fahrenheit
+//     slider.style.left = 'calc(50% - 27px / 2 + 10px)';
+//     console.log(unitText);
+//     // unitText.textContent = 'F';
+//   } else {
+//     // User switched to Celsius
+//     slider.style.left = 'calc(50% - 27px / 2 - 10px)';
+//     // unitText.textContent = 'C';
+//   }
+// });
 
 const cardH = document.querySelector('.humidity_card');
 const valueH = document.querySelector('.humidity_value');
@@ -39,7 +59,7 @@ const today = function () {
   weekDay.innerHTML = `${fullDayName}`;
 };
 
-// Getting Sunrise Time
+// Getting Sunrise/Sunset Time
 let time;
 const sunTime = function (timeStamp) {
   const curDate = new Date(timeStamp * 1000);
@@ -66,6 +86,15 @@ async function weatherApp(key, location) {
     const mainTemperature = Math.round(data.main.temp);
     mainTemp.innerHTML = `${mainTemperature}&deg;C`;
     mainTemp.classList.remove('hidden');
+
+    // Main Icon handle
+    if (data.main.feels_like >= 30) {
+      mainIcon.innerHTML = `<img class="" src="img/clear.png" alt="Weather" />`;
+    }
+    if (data.main.feels_like < 30) {
+      mainIcon.innerHTML = `<img class="" src="img/mist.png" alt="Weather" />`;
+    }
+    mainIcon.classList.remove('hidden');
 
     // Location Name on Image
     imgLocation.innerHTML = `${data.name}`;
