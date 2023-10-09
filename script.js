@@ -8,26 +8,6 @@ const img = document.querySelector('.image');
 const cloudDesc = document.querySelector('.clouds');
 const feelsLike = document.querySelector('.feel');
 
-// const checkbox = document.getElementById('checkbox');
-// const switchLabel = document.querySelector('.switch');
-
-// checkbox.addEventListener('change', function () {
-//   const slider = switchLabel.querySelector('.slider');
-//   const unitText = switchLabel.querySelector('.switch:after');
-
-//   if (this.checked) {
-//     // User switched to Fahrenheit
-//     slider.style.left = 'calc(50% - 27px / 2 + 10px)';
-//     console.log(unitText);
-//     // unitText.textContent = 'F';
-//   } else {
-//     // User switched to Celsius
-//     slider.style.left = 'calc(50% - 27px / 2 - 10px)';
-//     console.log(unitText);
-//     // unitText.textContent = 'C';
-//   }
-// });
-
 const cardH = document.querySelector('.humidity_card');
 const valueH = document.querySelector('.humidity_value');
 
@@ -164,19 +144,3 @@ async function weatherApp(key, location) {
 }
 
 today();
-
-// const sunriseTimestamp = 1696683207; // Replace with the value from your API
-
-// Convert the Unix timestamp to milliseconds (JavaScript uses milliseconds)
-// const sunriseDate = new Date(sunriseTimestamp * 1000);
-
-// Format the date and time as a string
-// const options = {
-//   hour: '2-digit',
-//   minute: '2-digit',
-//   second: '2-digit',
-// };
-
-// const formattedSunrise = sunriseDate.toLocaleString('en-US', options);
-
-// console.log('Sunrise time:', formattedSunrise);
