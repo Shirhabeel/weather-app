@@ -8,26 +8,6 @@ const img = document.querySelector('.image');
 const cloudDesc = document.querySelector('.clouds');
 const feelsLike = document.querySelector('.feel');
 
-// const checkbox = document.getElementById('checkbox');
-// const switchLabel = document.querySelector('.switch');
-
-// checkbox.addEventListener('change', function () {
-//   const slider = switchLabel.querySelector('.slider');
-//   const unitText = switchLabel.querySelector('.switch:after');
-
-//   if (this.checked) {
-//     // User switched to Fahrenheit
-//     slider.style.left = 'calc(50% - 27px / 2 + 10px)';
-//     console.log(unitText);
-//     // unitText.textContent = 'F';
-//   } else {
-//     // User switched to Celsius
-//     slider.style.left = 'calc(50% - 27px / 2 - 10px)';
-//     console.log(unitText);
-//     // unitText.textContent = 'C';
-//   }
-// });
-
 const cardH = document.querySelector('.humidity_card');
 const valueH = document.querySelector('.humidity_value');
 
