@@ -96,11 +96,11 @@ async function weatherApp(key, location) {
     mainTemp.classList.remove('hidden');
 
     // Main Icon handle
-    if (hours > 12) {
-      mainIcon.innerHTML = `<img class="" src="img/clear.png" alt="Weather" />`;
+    if ((hours >= 19 && hours <= 24) || (hours >= 1 && hours <= 5)) {
+      mainIcon.innerHTML = `<img src="img/moon.png" alt="Weather" />`;
     }
-    if (hours < 12) {
-      mainIcon.innerHTML = `<img class="" src="img/mist.png" alt="Weather" />`;
+    if (hours > 5 && hours <= 18) {
+      mainIcon.innerHTML = `<img src="img/clear.png" alt="Weather" />`;
     }
     mainIcon.classList.remove('hidden');
 

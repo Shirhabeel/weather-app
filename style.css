@@ -12,8 +12,9 @@ html {
   width: 100%;
   height: 100%;
   background-color: #ced4da;
-  margin: 0 auto; /* Center the container horizontally */
-  padding: 20px; /* Add some padding inside the container */
+
+  margin: 0 auto;
+  padding: 2rem;
 }
 
 .inner-container {
