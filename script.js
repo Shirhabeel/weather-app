@@ -33,10 +33,18 @@ const apiKey = '229d7e9e145bc6ef238b2a82a0550a4f';
 const apiUrl = 'https://api.openweathermap.org/data/2.5/weather?q=';
 
 // Getting the Week Day
+const currentDate = new Date();
+const hours = currentDate.getHours();
+console.log(hours);
 const today = function () {
-  const day = new Date();
   const options = { weekday: 'long' };
-  const fullDayName = day.toLocaleDateString(undefined, options);
+  // const options = {
+  //   weekday: 'long', // Full weekday name (e.g., "Monday")
+  //   year: 'numeric', // Full year (e.g., "2023")
+  //   month: 'long', // Full month name (e.g., "October")
+  //   day: 'numeric', // Day of the month (e.g., "10")
+  // };
+  const fullDayName = currentDate.toLocaleDateString(undefined, options);
   weekDay.innerHTML = `${fullDayName}`;
 };
 
@@ -50,15 +58,23 @@ const sunTime = function (timeStamp) {
 
 searchLogo.addEventListener('click', async function () {
   city = searchInput.value;
-  searchInput.value = '';
-  await weatherApp(apiKey, city);
+  if (city === '') {
+    alert('Please type something :(');
+  } else {
+    searchInput.value = '';
+    await weatherApp(apiKey, city);
+  }
 });
 
-searchInput.addEventListener('keyup', function (event) {
+searchInput.addEventListener('keyup', async function (event) {
   if (event.key === 'Enter') {
     city = searchInput.value;
-    searchInput.value = '';
-    weatherApp(apiKey, city);
+    if (city === '') {
+      alert('Please type something :(');
+    } else {
+      searchInput.value = '';
+      await weatherApp(apiKey, city);
+    }
   }
 });
 
@@ -69,6 +85,11 @@ async function weatherApp(key, location) {
     );
     const data = await response.json();
     console.log(data);
+    // console.log(data.name);
+    if (!data.name) {
+      throw new Error(`${data.cod}: City not found :(`);
+      // console.log(data.cod, data.message);
+    }
 
     // Main Temperature Heading
     const mainTemperature = Math.round(data.main.temp);
@@ -76,10 +97,10 @@ async function weatherApp(key, location) {
     mainTemp.classList.remove('hidden');
 
     // Main Icon handle
-    if (data.main.feels_like >= 30) {
+    if (hours > 12) {
       mainIcon.innerHTML = `<img class="" src="img/clear.png" alt="Weather" />`;
     }
-    if (data.main.feels_like < 30) {
+    if (hours < 12) {
       mainIcon.innerHTML = `<img class="" src="img/mist.png" alt="Weather" />`;
     }
     mainIcon.classList.remove('hidden');
@@ -122,7 +143,7 @@ async function weatherApp(key, location) {
     }
     cardW.classList.remove('hidden');
 
-    // SunRise Card
+    // Sunsise Card
     sunTime(data.sys.sunrise);
     valueSR.innerHTML = `${time}`;
     cardSR.classList.remove('hidden');
@@ -139,7 +160,8 @@ async function weatherApp(key, location) {
 
     // sunTime(data.sys.sunrise);
   } catch (err) {
-    console.log(err);
+    // alert('Please enter correct city name!');
+    alert(err);
   }
 }
 
