@@ -85,10 +85,9 @@ async function weatherApp(key, location) {
     );
     const data = await response.json();
     console.log(data);
-    // console.log(data.name);
+
     if (!data.name) {
-      throw new Error(`${data.cod}: City not found :(`);
-      // console.log(data.cod, data.message);
+      throw new Error(`Please enter correct city name!`);
     }
 
     // Main Temperature Heading
@@ -160,8 +159,7 @@ async function weatherApp(key, location) {
 
     // sunTime(data.sys.sunrise);
   } catch (err) {
-    // alert('Please enter correct city name!');
-    alert(err);
+    alert(err.message);
   }
 }
 
