@@ -2,7 +2,7 @@ const searchLogo = document.querySelector('.search-logo');
 const searchInput = document.querySelector('.search-input');
 const mainTemp = document.querySelector('.heading-temp');
 const imgLocation = document.querySelector('.img-description');
-const mainIcon = document.querySelector('.main-icon');
+const mainIcon = document.querySelector('.time-icon');
 const img = document.querySelector('.image');
 
 const cloudDesc = document.querySelector('.clouds');
@@ -97,10 +97,10 @@ async function weatherApp(key, location) {
 
     // Main Icon handle
     if ((hours >= 19 && hours <= 24) || (hours >= 1 && hours <= 5)) {
-      mainIcon.innerHTML = `<img src="img/moon.png" alt="Weather" />`;
+      mainIcon.innerHTML = `<img class="main-icon" src="img/moon.png" alt="Weather" />`;
     }
     if (hours > 5 && hours <= 18) {
-      mainIcon.innerHTML = `<img src="img/clear.png" alt="Weather" />`;
+      mainIcon.innerHTML = `<img class="main-icon" src="img/clear.png" alt="Weather" />`;
     }
     mainIcon.classList.remove('hidden');
 
