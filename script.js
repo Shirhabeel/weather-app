@@ -27,6 +27,11 @@ const cardSS = document.querySelector('.sunset_card');
 const valueSS = document.querySelector('.sunset_value');
 
 const weekDay = document.querySelector('.weekday');
+const tempBtn = document.querySelector('.btn-degree');
+const btnCelcius = document.querySelector('.btn-celcius');
+const btnFahrenhiet = document.querySelector('.btn-fahrenhiet');
+console.log(btnCelcius);
+console.log(btnFahrenhiet);
 // const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q={city name}&appid=${apiKey}`
 let city;
 const apiKey = '229d7e9e145bc6ef238b2a82a0550a4f';
@@ -56,32 +61,48 @@ const sunTime = function (timeStamp) {
   time = curDate.toLocaleString('en-US', options);
 };
 
-searchLogo.addEventListener('click', async function () {
+const searchHandler = async function () {
   city = searchInput.value;
   if (city === '') {
     alert('Please type something :(');
   } else {
     searchInput.value = '';
-    await weatherApp(apiKey, city);
+    await weatherApp(apiKey, city, 'metric');
+    tempBtn.classList.remove('hidden');
+    btnCelcius.style.backgroundColor = '#676a6d';
+    btnFahrenhiet.style.backgroundColor = '#999';
   }
+};
+
+searchLogo.addEventListener('click', async function () {
+  city = searchInput.value;
+  await searchHandler();
 });
 
 searchInput.addEventListener('keyup', async function (event) {
   if (event.key === 'Enter') {
-    city = searchInput.value;
-    if (city === '') {
-      alert('Please type something :(');
-    } else {
-      searchInput.value = '';
-      await weatherApp(apiKey, city);
-    }
+    await searchHandler();
   }
 });
 
-async function weatherApp(key, location) {
+btnCelcius.addEventListener('click', async function () {
+  await weatherApp(apiKey, city, 'metric');
+  btnCelcius.style.backgroundColor = '#676a6d';
+  btnFahrenhiet.style.backgroundColor = '#999';
+});
+
+btnFahrenhiet.addEventListener('click', async function () {
+  await weatherApp(apiKey, city, 'imperial');
+  btnCelcius.style.backgroundColor = '#999';
+  btnFahrenhiet.style.backgroundColor = '#676a6d';
+
+  // feelsLike.innerHTML = `Feels like: ${Math.round(data.main.feels_like)}&deg;F`;
+});
+
+async function weatherApp(key, location, units) {
   try {
     const response = await fetch(
-      `${apiUrl}${location}&appid=${key}&units=metric`
+      `${apiUrl}${location}&appid=${key}&units=${units}`
     );
     const data = await response.json();
     console.log(data);
@@ -92,7 +113,12 @@ async function weatherApp(key, location) {
 
     // Main Temperature Heading
     const mainTemperature = Math.round(data.main.temp);
-    mainTemp.innerHTML = `${mainTemperature}&deg;C`;
+    if (units === 'metric') {
+      mainTemp.innerHTML = `${mainTemperature}&deg;C`;
+    }
+    if (units === 'imperial') {
+      mainTemp.innerHTML = `${mainTemperature}&deg;F`;
+    }
     mainTemp.classList.remove('hidden');
 
     // Main Icon handle
@@ -118,9 +144,13 @@ async function weatherApp(key, location) {
     // console.log(data.weather[0].description);
 
     // Feels Like
-    feelsLike.innerHTML = `Feels like: ${Math.round(
-      data.main.feels_like
-    )}&deg;C`;
+    const feelingTemp = Math.round(data.main.feels_like);
+    if (units === 'metric') {
+      feelsLike.innerHTML = `Feels like: ${feelingTemp}&deg;C`;
+    }
+    if (units === 'imperial') {
+      feelsLike.innerHTML = `Feels like: ${feelingTemp}&deg;F`;
+    }
     feelsLike.classList.remove('hidden');
 
     // Humidity Card

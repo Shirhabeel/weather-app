@@ -7,10 +7,9 @@
 html {
   font-size: 62.5%;
 }
-
-/* .hidden {
+.hidden {
   opacity: 0;
-} */
+}
 
 .container {
   width: 100vw;
@@ -89,7 +88,7 @@ html {
   font-weight: bold;
 }
 
-.description:last-child {
+.clouds {
   margin-bottom: 0.4rem;
   text-transform: capitalize;
 }
@@ -138,10 +137,12 @@ html {
   align-items: center;
   justify-content: space-between;
   padding: 3rem 3rem 0 2rem;
-  background-color: rgb(131, 128, 128);
+  /* background-color: rgb(131, 128, 128); */
+  background-color: #7c7f83;
 }
 
 .weekday {
+  color: #fff;
   font-weight: bold;
   font-size: 1.4rem;
   border-left: 0.5rem solid #e67700;
@@ -151,11 +152,31 @@ html {
   margin-bottom: 0.3rem;
 }
 
+.btn-degree {
+  margin-bottom: 1rem;
+}
+
+.btn-celcius {
+  background-color: #999;
+  color: #fff;
+  padding: 0.5rem;
+  border-radius: 50%;
+  border: none;
+}
+
+.btn-fahrenhiet {
+  background-color: #999;
+  color: #fff;
+  padding: 0.5rem;
+  border-radius: 50%;
+  border: none;
+}
+
 /* CARDS */
 .cards {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 3rem;
+  gap: 2rem;
 
   margin: 2.4rem;
   padding: 2rem;
