@@ -89,7 +89,7 @@ html {
   font-weight: bold;
 }
 
-.cloudy {
+.description:last-child {
   margin-bottom: 0.4rem;
   text-transform: capitalize;
 }
@@ -273,34 +273,8 @@ html {
   }
 
   .inner-container {
-    width: 50rem;
-  }
-
-  .heading-temp {
-    font-size: 3rem;
-  }
-
-  .navbar {
-    width: 18rem;
-  }
-
-  .weekday {
-    letter-spacing: 0.3rem;
-  }
-
-  .cards {
-    gap: 1rem;
-
-    margin: 2rem 2rem 0 0;
-    font-size: 1.6rem;
-  }
-
-  .card {
-    padding: 3rem 1.3rem 1.3rem 1.3rem;
-  }
-
-  .author {
-    margin-top: 5rem;
+    width: auto;
+    height: auto;
   }
 }
 
@@ -310,7 +284,13 @@ html {
   }
 
   .inner-container {
-    width: 45rem;
+    width: 40rem;
+
+    display: block;
   }
 
+  .navbar {
+    flex-direction: row;
+    width: 100%;
+  }
 } */
